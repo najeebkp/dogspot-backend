@@ -28,6 +28,7 @@ var Post = require("./models/post");
 app.get("/users", async (req, res) => {
   const users = await User.find({});
   try {
+    res.header("Access-Control-Allow-Origin", "*");
     res.json(users);
   } catch (error) {
     res.status(500).send(error);
@@ -37,6 +38,7 @@ app.get("/users", async (req, res) => {
 app.get("/posts", async (req, res) => {
   const users = await Post.find({});
   try {
+    res.header("Access-Control-Allow-Origin", "*");
     res.json(users);
   } catch (error) {
     res.status(500).send(error);
@@ -127,4 +129,6 @@ function authenticationToken(req, res, next) {
   });
 }
 
-app.listen(3000);
+const port = process.env.PORT || 8000;
+
+app.listen(port);
