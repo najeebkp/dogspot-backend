@@ -1,0 +1,45 @@
+GET http://localhost:3000/users
+
+###
+
+
+###
+GET http://localhost:3000/posts
+
+POST http://localhost:3000/register/
+Content-Type: application/json
+
+{
+  "name":"",
+  "email":"",
+  "password":""
+}
+
+
+###
+
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+  "email":"",
+  "password":""
+}
+
+
+###
+POST http://localhost:3000/posts
+Authorization: Bearer 
+Content-Type: application/json
+
+{
+  "title": "New Time",
+  "description": "Multiple dogs stray here",
+  "number_of_dogs": "4",
+  "dog_behaviour": ["Aggressive", "Socila"],
+  "image": ["http://google.com", "http://facebook.com"],
+  "coords": {
+    "latitude": "11.10252022",
+    "longitude": "52.1115155"
+  }
+}
