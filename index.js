@@ -95,10 +95,10 @@ app.post("/login", async (req, res) => {
   User.findOne({ email: req.body.email }, async (err, user) => {
     if (err) {
       console.log(err);
-      return res.status(500).send();
+      return res.status(500).send({ message: "server error." });
     }
     if (!user) {
-      return res.status(404).send();
+      return res.status(404).send({ messaga: "user not found." });
     }
 
     try {
@@ -108,10 +108,10 @@ app.post("/login", async (req, res) => {
         res.json({ accessToken: accessToken });
         // res.send("success");
       } else {
-        res.send("No allowed");
+        res.send({ message: "incorrect password." });
       }
     } catch (error) {
-      res.status(500).send();
+      res.status(500).send({ message: "server error." });
     }
   });
 });
