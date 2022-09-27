@@ -108,7 +108,7 @@ app.post("/login", async (req, res) => {
         res.json({ accessToken: accessToken });
         // res.send("success");
       } else {
-        res.send({ message: "incorrect password." });
+        res.status(404).send({ message: "incorrect password." });
       }
     } catch (error) {
       res.status(500).send({ message: "server error." });
