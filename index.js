@@ -98,7 +98,7 @@ app.post("/login", async (req, res) => {
       return res.status(500).send({ message: "server error." });
     }
     if (!user) {
-      return res.status(404).send({ messaga: "user not found." });
+      return res.status(404).send({ message: "user not found." });
     }
 
     try {
